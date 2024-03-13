@@ -3,43 +3,43 @@ from flask_login import LoginManager, UserMixin, login_user, login_required, log
 import os
 
 app = Flask(__name__)
-app.secret_key = os.urandom(24)
+# app.secret_key = os.urandom(24)
 
-login_manager = LoginManager()
-login_manager.init_app(app)
-login_manager.login_view = 'login'
+# login_manager = LoginManager()
+# login_manager.init_app(app)
+# login_manager.login_view = 'login'
 
-@login_manager.user_loader
-def load_user(user_id):
-    return User.get(user_id)
+# @login_manager.user_loader
+# def load_user(user_id):
+#     return User.get(user_id)
 
 
-class User(UserMixin):
-    users = {
-        os.environ.get('username'): {'password': os.environ.get('password')}
-    }
+# class User(UserMixin):
+#     users = {
+#         os.environ.get('username'): {'password': os.environ.get('password')}
+#     }
 
-    def __init__(self, username):
-        self.id = username
+#     def __init__(self, username):
+#         self.id = username
 
-    @classmethod
-    def get(cls, id):
-        if id in cls.users:
-            return cls(id)
-        return None
+#     @classmethod
+#     def get(cls, id):
+#         if id in cls.users:
+#             return cls(id)
+#         return None
 
-@app.route('/login', methods=['GET', 'POST'])
-def login():
-    if request.method == 'POST':
-        username = request.form['username']
-        password = request.form['password']
-        if username in User.users and User.users[username]['password'] == password:
-            user = User(username)
-            login_user(user)
-            return redirect(url_for('home'))
-        else:
-            return 'Invalid username or password'
-    return render_template('login.html')
+# @app.route('/login', methods=['GET', 'POST'])
+# def login():
+#     if request.method == 'POST':
+#         username = request.form['username']
+#         password = request.form['password']
+#         if username in User.users and User.users[username]['password'] == password:
+#             user = User(username)
+#             login_user(user)
+#             return redirect(url_for('home'))
+#         else:
+#             return 'Invalid username or password'
+#     return render_template('login.html')
 
 @app.route('/')
 @login_required
