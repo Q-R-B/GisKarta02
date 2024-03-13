@@ -44,12 +44,12 @@ app = Flask(__name__)
 @app.route('/')
 #@login_required
 def home():
-    return render_template('index.html')
+    return render_template('templates/index.html')
 
-@app.route('/logout')
-def logout():
-    logout_user()
-    return redirect(url_for('login'))
+# @app.route('/logout')
+# def logout():
+#     logout_user()
+#     return redirect(url_for('login'))
 
 @app.route('/css/<path:filename>')
 #@login_required
