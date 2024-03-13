@@ -44,7 +44,7 @@ app = Flask(__name__)
 @app.route('/')
 #@login_required
 def home():
-    return render_template('templates/index.html')
+    return render_template('index.html')
 
 # @app.route('/logout')
 # def logout():
