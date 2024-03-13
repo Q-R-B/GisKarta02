@@ -42,7 +42,7 @@ app = Flask(__name__)
 #     return render_template('login.html')
 
 @app.route('/')
-@login_required
+#@login_required
 def home():
     return render_template('index.html')
 
@@ -52,27 +52,27 @@ def logout():
     return redirect(url_for('login'))
 
 @app.route('/css/<path:filename>')
-@login_required
+#@login_required
 def send_css(filename):
     return send_from_directory(os.path.join('static', 'css'), filename)
 
 @app.route('/data/<path:filename>')
-@login_required
+#@login_required
 def send_data(filename):
     return send_from_directory(os.path.join('static', 'data'), filename)
 
 @app.route('/js/<path:filename>')
-@login_required
+#@login_required
 def send_js(filename):
     return send_from_directory(os.path.join('static', 'js'), filename)
 
 @app.route('/legend/<path:filename>')
-@login_required
+#@login_required
 def send_legend(filename):
     return send_from_directory(os.path.join('static', 'legend'), filename)
 
 @app.route('/webfonts/<path:filename>')
-@login_required
+#@login_required
 def send_webfonts(filename):
     return send_from_directory(os.path.join('static', 'webfonts'), filename)
 
