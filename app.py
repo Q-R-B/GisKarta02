@@ -51,30 +51,25 @@ def home():
 #     logout_user()
 #     return redirect(url_for('login'))
 
-@app.route('/css/<path:filename>')
+@app.route('/layers/<path:filename>')
 #@login_required
-def send_css(filename):
-    return send_from_directory(os.path.join('static', 'css'), filename)
+def send_layers(filename):
+    return send_from_directory(os.path.join('static', 'layers'), filename)
 
-@app.route('/data/<path:filename>')
+@app.route('/resources/<path:filename>')
 #@login_required
-def send_data(filename):
-    return send_from_directory(os.path.join('static', 'data'), filename)
+def send_resources(filename):
+    return send_from_directory(os.path.join('static', 'resources'), filename)
 
-@app.route('/js/<path:filename>')
+@app.route('/styles/<path:filename>')
 #@login_required
-def send_js(filename):
-    return send_from_directory(os.path.join('static', 'js'), filename)
+def send_styles(filename):
+    return send_from_directory(os.path.join('static', 'styles'), filename)
 
-@app.route('/legend/<path:filename>')
+@app.route('/webfront/<path:filename>')
 #@login_required
-def send_legend(filename):
-    return send_from_directory(os.path.join('static', 'legend'), filename)
-
-@app.route('/webfonts/<path:filename>')
-#@login_required
-def send_webfonts(filename):
-    return send_from_directory(os.path.join('static', 'webfonts'), filename)
+def send_webfront(filename):
+    return send_from_directory(os.path.join('static', 'webfront'), filename)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=8080)
