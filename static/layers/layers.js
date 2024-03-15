@@ -10,7 +10,7 @@ var lyr_Ortofoto2023_0 = new ol.layer.Tile({
                                 "VERSION": "1.3.0"},
                             })),
                             title: "Ortofoto 2023",
-                            opacity: 0.9900000,
+                            opacity: 0.600000,
                             
                             
                           });
